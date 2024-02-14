@@ -33,9 +33,9 @@ export default defineConfig({
       entry: "/src/adapters/workerd.ts",
       // TODO: allow accessing ViteDevServer from custom rpc?
       customRpc: {
-        getIndexHtml: async (url: string) => {
+        getIndexHtml: async () => {
           const html = await fs.promises.readFile("./index.html", "utf-8");
-          return viteDevServer.transformIndexHtml(url, html);
+          return viteDevServer.transformIndexHtml("/", html);
         },
       },
     }),
