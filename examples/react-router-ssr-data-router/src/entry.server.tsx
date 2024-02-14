@@ -23,6 +23,6 @@ export async function render(request: Request) {
         context={context}
         nonce="the-nonce"
       />
-    </React.StrictMode>
+    </React.StrictMode>,
   );
 }

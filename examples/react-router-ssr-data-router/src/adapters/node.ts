@@ -23,7 +23,7 @@ export default createMiddleware(async (ctx) => {
     html = await fs.promises.readFile("./index.html", "utf-8");
     html = await ctx.platform.request.viteDevServer.transformIndexHtml(
       "/",
-      html
+      html,
     );
   } else {
     html = await fs.promises.readFile("./dist/client/index.html", "utf-8");
