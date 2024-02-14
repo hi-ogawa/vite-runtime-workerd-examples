@@ -1,5 +1,5 @@
 import type { RouteObject } from "react-router-dom";
-import { Outlet, Link, useLoaderData, redirect } from "react-router-dom";
+import { Outlet, Link, useLoaderData, redirect, useNavigation } from "react-router-dom";
 
 export const routes: RouteObject[] = [
   {
@@ -37,9 +37,16 @@ export const routes: RouteObject[] = [
 ];
 
 function Layout() {
+  const navigation = useNavigation();
+
   return (
     <div>
-      <h1>Data Router Server Rendering Example</h1>
+      <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+        <h1>
+          Data Router Server Rendering Example
+        </h1>
+        {navigation.state !== "idle" && <span>(loading...)</span>}
+      </div>
 
       <p>
         If you check out the HTML source of this page, you'll notice that it
