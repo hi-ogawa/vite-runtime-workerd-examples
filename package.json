@@ -9,6 +9,9 @@
     "lint-check": "prettier -c --cache ."
   },
   "devDependencies": {
+    "@hattip/adapter-node": "^0.0.42",
+    "@hiogawa/vite-node-miniflare": "0.0.3-pre.0",
+    "@hiogawa/vite-plugin-ssr-middleware": "^0.0.2",
     "@tsconfig/strictest": "^2.0.1",
     "@vitejs/plugin-react": "^4.2.0",
     "prettier": "^2.8.8",
