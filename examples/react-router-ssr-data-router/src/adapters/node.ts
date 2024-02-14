@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import type { ViteDevServer } from "vite";
-import { render } from "../entry.server";
+import { requestHandler } from "../entry.server";
 import { createMiddleware } from "@hattip/adapter-node";
 
 declare module "@hattip/adapter-node" {
@@ -10,24 +10,18 @@ declare module "@hattip/adapter-node" {
 }
 
 export default createMiddleware(async (ctx) => {
-  const result = await render(ctx.request);
-
-  // redirect response
-  if (result instanceof Response) {
-    return result;
-  }
-
-  // ssr
-  let html: string;
-  if (import.meta.env.DEV) {
-    html = await fs.promises.readFile("./index.html", "utf-8");
-    html = await ctx.platform.request.viteDevServer.transformIndexHtml(
-      "/",
-      html,
-    );
-  } else {
-    html = await fs.promises.readFile("./dist/client/index.html", "utf-8");
-  }
-  html = html.replace("<!--app-html-->", result);
-  return new Response(html, { headers: { "content-type": "text/html" } });
+  return requestHandler({
+    request: ctx.request,
+    async getHtmlTemplate() {
+      if (import.meta.env.DEV) {
+        const html = await fs.promises.readFile("./index.html", "utf-8");
+        return await ctx.platform.request.viteDevServer.transformIndexHtml(
+          "/",
+          html,
+        );
+      } else {
+        throw new Error("todo: embed template during build");
+      }
+    },
+  });
 });
