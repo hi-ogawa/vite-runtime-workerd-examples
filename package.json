@@ -1,0 +1,22 @@
+{
+  "name": "@hiogawa/vite-plugins-monorepo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "tsc": "tsc -b examples/*/tsconfig.json",
+    "dev:tsc": "pnpm tsc --watch --preserveWatchOutput",
+    "lint": "prettier -w --cache .",
+    "lint-check": "prettier -c --cache ."
+  },
+  "devDependencies": {
+    "@tsconfig/strictest": "^2.0.1",
+    "@vitejs/plugin-react": "^4.2.0",
+    "prettier": "^2.8.8",
+    "typescript": "^5.1.6",
+    "vite": "^5.1.0"
+  },
+  "packageManager": "pnpm@8.12.1+sha256.28ca61ece5a496148b73fabc9afb820f9c3fec4f55f04ce45a2cea0a5219f2e1",
+  "volta": {
+    "node": "18.16.0"
+  }
+}
