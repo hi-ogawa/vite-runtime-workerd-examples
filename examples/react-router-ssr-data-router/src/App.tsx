@@ -1,5 +1,11 @@
 import type { RouteObject } from "react-router-dom";
-import { Outlet, Link, useLoaderData, redirect, useNavigation } from "react-router-dom";
+import {
+  Outlet,
+  Link,
+  useLoaderData,
+  redirect,
+  useNavigation,
+} from "react-router-dom";
 
 export const routes: RouteObject[] = [
   {
@@ -42,9 +48,7 @@ function Layout() {
   return (
     <div>
       <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-        <h1>
-          Data Router Server Rendering Example
-        </h1>
+        <h1>Data Router Server Rendering Example</h1>
         {navigation.state !== "idle" && <span>(loading...)</span>}
       </div>
 

@@ -10,7 +10,7 @@ declare module "@hattip/adapter-node" {
 }
 
 export default createMiddleware(async (ctx) => {
-  const result = await render(ctx.request)
+  const result = await render(ctx.request);
 
   // redirect response
   if (result instanceof Response) {
@@ -21,10 +21,13 @@ export default createMiddleware(async (ctx) => {
   let html: string;
   if (import.meta.env.DEV) {
     html = await fs.promises.readFile("./index.html", "utf-8");
-    html = await ctx.platform.request.viteDevServer.transformIndexHtml("/", html);
+    html = await ctx.platform.request.viteDevServer.transformIndexHtml(
+      "/",
+      html
+    );
   } else {
     html = await fs.promises.readFile("./dist/client/index.html", "utf-8");
   }
   html = html.replace("<!--app-html-->", result);
-  return new Response(html, { headers: { "content-type": "text/html" }});
+  return new Response(html, { headers: { "content-type": "text/html" } });
 });
