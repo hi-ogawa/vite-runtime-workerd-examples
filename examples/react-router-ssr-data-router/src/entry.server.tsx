@@ -5,7 +5,7 @@ import {
   createStaticRouter,
   StaticRouterProvider,
 } from "react-router-dom/server";
-import { routes } from "./App";
+import { routes } from "./app";
 
 export async function render(request: Request) {
   let { query, dataRoutes } = createStaticHandler(routes);

@@ -6,6 +6,9 @@ import {
   redirect,
   useNavigation,
 } from "react-router-dom";
+import { rand, sleep } from "./utils";
+import { homeLoader } from "./home.loader";
+import { Home } from "./home";
 
 export const routes: RouteObject[] = [
   {
@@ -100,24 +103,6 @@ function Layout() {
       <hr />
 
       <Outlet />
-    </div>
-  );
-}
-
-const sleep = (n = 500) => new Promise((r) => setTimeout(r, n));
-const rand = () => Math.round(Math.random() * 100);
-
-async function homeLoader() {
-  await sleep();
-  return { data: `Home loader - random value ${rand()}` };
-}
-
-function Home() {
-  let data = useLoaderData() as Awaited<ReturnType<typeof homeLoader>>;
-  return (
-    <div>
-      <h2>Home</h2>
-      <p>Loader Data: {data.data}</p>
     </div>
   );
 }

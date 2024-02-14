@@ -6,7 +6,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import { routes } from "./App";
+import { routes } from "./app";
 
 hydrate();
 
