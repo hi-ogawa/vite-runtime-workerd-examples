@@ -113,7 +113,7 @@ async function homeLoader() {
 }
 
 function Home() {
-  let data = useLoaderData();
+  let data = useLoaderData() as Awaited<ReturnType<typeof homeLoader>>;
   return (
     <div>
       <h2>Home</h2>
@@ -136,7 +136,7 @@ async function dashboardLoader() {
 }
 
 function Dashboard() {
-  let data = useLoaderData();
+  let data = useLoaderData() as Awaited<ReturnType<typeof dashboardLoader>>;
   return (
     <div>
       <h2>Dashboard</h2>

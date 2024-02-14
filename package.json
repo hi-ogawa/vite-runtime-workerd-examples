@@ -12,11 +12,12 @@
     "@hattip/adapter-node": "^0.0.42",
     "@hiogawa/vite-node-miniflare": "0.0.3-pre.0",
     "@hiogawa/vite-plugin-ssr-middleware": "^0.0.2",
-    "@tsconfig/strictest": "^2.0.1",
-    "@vitejs/plugin-react": "^4.2.0",
-    "prettier": "^2.8.8",
-    "typescript": "^5.1.6",
-    "vite": "^5.1.0"
+    "@tsconfig/strictest": "^2.0.3",
+    "@types/node": "^20.11.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "prettier": "^3.2.5",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.1"
   },
   "packageManager": "pnpm@8.12.1+sha256.28ca61ece5a496148b73fabc9afb820f9c3fec4f55f04ce45a2cea0a5219f2e1",
   "volta": {
