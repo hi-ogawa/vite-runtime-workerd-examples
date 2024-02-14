@@ -12,3 +12,4 @@ jobs:
       - run: corepack enable
       - run: pnpm i
       - run: pnpm lint-check
+      - run: pnpm tsc
