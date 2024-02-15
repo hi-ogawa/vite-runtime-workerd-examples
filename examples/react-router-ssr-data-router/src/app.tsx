@@ -9,6 +9,7 @@ import {
 import { rand, sleep } from "./utils";
 import { homeLoader } from "./home.loader";
 import { Home } from "./home";
+import { crashLoader } from "./crash";
 
 // TODO: refactor non component exports to support HMR
 export const routes: RouteObject[] = [
@@ -37,6 +38,10 @@ export const routes: RouteObject[] = [
       {
         path: "redirect",
         loader: redirectLoader,
+      },
+      {
+        path: "crash",
+        loader: crashLoader,
       },
       {
         path: "*",
@@ -103,6 +108,11 @@ function Layout() {
           </li>
           <li>
             <Link to="/nothing-here">Nothing Here</Link>
+          </li>
+          <li>
+            <a href="/crash" target="_blank">
+              Crash to see server stacktrace
+            </a>
           </li>
         </ul>
       </nav>
