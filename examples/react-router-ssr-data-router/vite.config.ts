@@ -21,6 +21,7 @@ export default defineConfig({
   plugins: [
     react(),
     {
+      // grab ViteDevServer for `getHtmlTemplate` rpc below
       name: "getViteDevServer",
       configureServer(server) {
         viteDevServer = server;
