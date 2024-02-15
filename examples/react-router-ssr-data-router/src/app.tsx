@@ -101,9 +101,8 @@ function Layout() {
             <Link to="/redirect">Redirect to Home</Link>
           </li>
           <li>
-            {/* https://github.com/cloudflare/workers-sdk/issues/5018 */}
             <a href="/redirect" target="_blank">
-              Redirect to Home (new tab) (not working)
+              Redirect to Home (new tab)
             </a>
           </li>
           <li>
