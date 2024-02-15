@@ -5,6 +5,7 @@ import { createMiddleware } from "@hattip/adapter-node";
 
 declare module "@hattip/adapter-node" {
   interface DecoratedRequest {
+    // injected by @hiogawa/vite-plugin-ssr-middleware
     viteDevServer: ViteDevServer;
   }
 }
