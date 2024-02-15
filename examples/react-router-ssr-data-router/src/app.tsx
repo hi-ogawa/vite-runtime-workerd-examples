@@ -10,6 +10,7 @@ import { rand, sleep } from "./utils";
 import { homeLoader } from "./home.loader";
 import { Home } from "./home";
 
+// TODO: refactor non component exports to support HMR
 export const routes: RouteObject[] = [
   {
     path: "/",
