@@ -32,7 +32,6 @@ export default defineConfig({
       // SSR HMR is currently not supported by vite react plugin yet
       hmr: false,
       entry: "/src/adapters/workerd.ts",
-      // TODO: allow accessing ViteDevServer from custom rpc?
       customRpc: {
         getHtmlTemplate: async (url: string) => {
           const html = await fs.promises.readFile("./index.html", "utf-8");
