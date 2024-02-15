@@ -6,4 +6,14 @@ pnpm dev
 
 # run on NodeJS using @hiogawa/vite-plugin-ssr-middleware
 pnpm dev-node
+
+# build for cloudflare pages advanced mode
+# (see also misc/cloudflare-pages/README.md)
+pnpm build
+
+# local preview with wrangler cli
+pnpm preview
+
+# deploy
+pnpm release
 ```
