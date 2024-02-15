@@ -96,6 +96,10 @@ function Layout() {
             <Link to="/redirect">Redirect to Home</Link>
           </li>
           <li>
+            {/* https://github.com/cloudflare/workers-sdk/issues/5018 */}
+            <a href="/redirect" target="_blank">Redirect to Home (new tab) (not working)</a>
+          </li>
+          <li>
             <Link to="/nothing-here">Nothing Here</Link>
           </li>
         </ul>
@@ -132,7 +136,6 @@ function Dashboard() {
 }
 
 async function redirectLoader() {
-  await sleep();
   return redirect("/");
 }
 
