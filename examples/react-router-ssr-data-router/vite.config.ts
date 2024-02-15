@@ -35,6 +35,8 @@ export default defineConfig({
       entry: "/src/adapters/workerd.ts",
       miniflareOptions(options) {
         options.log = new Log();
+        // you can extend MiniflareOptions to setup KV etc...
+        // options.kvPersist
       },
       customRpc: {
         getHtmlTemplate: async (url: string) => {
