@@ -2,6 +2,7 @@ import { defineConfig, type ViteDevServer } from "vite";
 import react from "@vitejs/plugin-react";
 import { vitePluginViteNodeMiniflare } from "@hiogawa/vite-node-miniflare";
 import fs from "node:fs";
+import { Log } from "miniflare"
 
 let viteDevServer: ViteDevServer;
 
@@ -32,6 +33,9 @@ export default defineConfig({
       // SSR HMR is currently not supported by vite react plugin yet
       hmr: false,
       entry: "/src/adapters/workerd.ts",
+      miniflareOptions(options) {
+        options.log = new Log();
+      },
       customRpc: {
         getHtmlTemplate: async (url: string) => {
           const html = await fs.promises.readFile("./index.html", "utf-8");

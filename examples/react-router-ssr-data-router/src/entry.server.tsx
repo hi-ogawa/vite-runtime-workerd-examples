@@ -17,7 +17,7 @@ export async function requestHandler({
   const { query, dataRoutes } = createStaticHandler(routes);
   const context = await query(request);
 
-  // loader response, redirect, error, etc...
+  // redirect, error, etc...
   if (context instanceof Response) {
     return context;
   }
