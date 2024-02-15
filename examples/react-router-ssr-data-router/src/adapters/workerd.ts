@@ -6,6 +6,7 @@ export default {
       request,
       getHtmlTemplate() {
         if (import.meta.env.DEV) {
+          // customRpc is exposed via `env.__VITE_NODE_MINIFLARE_CLIENT`
           return env.__VITE_NODE_MINIFLARE_CLIENT.rpc.getHtmlTemplate(
             request.url,
           );
