@@ -4,5 +4,7 @@ Separate repoisoty for [`vite-node-miniflare`](https://github.com/hi-ogawa/vite-
 
 ```sh
 pnpm i
+
+# see more in README.md
 pnpm -C examples/react-router-ssr-data-router dev
 ```
