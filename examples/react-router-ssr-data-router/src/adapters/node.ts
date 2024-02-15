@@ -21,7 +21,8 @@ export default createMiddleware(async (ctx) => {
           html,
         );
       } else {
-        throw new Error("todo: embed template during server build");
+        // embed prebuilt index.html
+        return (await import("/dist/client/index.html?raw")).default;
       }
     },
   });

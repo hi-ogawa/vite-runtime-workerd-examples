@@ -6,7 +6,7 @@ import { Log } from "miniflare";
 
 let viteDevServer: ViteDevServer;
 
-export default defineConfig({
+export default defineConfig((env) => ({
   clearScreen: false,
   ssr: {
     // need to manually specify cjs deps to pre-bundle into esm
@@ -19,6 +19,16 @@ export default defineConfig({
       ],
     },
   },
+  build: env.isSsrBuild
+    ? {
+        outDir: "dist/server",
+        rollupOptions: {
+          input: "src/adapters/workerd.ts",
+        },
+      }
+    : {
+        outDir: "dist/client",
+      },
   plugins: [
     react(),
     {
@@ -35,6 +45,8 @@ export default defineConfig({
       entry: "/src/adapters/workerd.ts",
       miniflareOptions(options) {
         options.log = new Log();
+        // you can extend MiniflareOptions to setup KV etc...
+        // options.kvPersist
       },
       customRpc: {
         getHtmlTemplate: async (url: string) => {
@@ -44,4 +56,4 @@ export default defineConfig({
       },
     }),
   ],
-});
+}));

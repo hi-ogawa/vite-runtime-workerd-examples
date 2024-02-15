@@ -4,7 +4,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "dev-node": "vite dev -c vite.config.node.ts"
+    "dev-node": "vite dev -c vite.config.node.ts",
+    "build": "vite build && vite build --ssr && bash misc/cloudflare-pages/build.sh",
+    "preview": "wrangler pages dev ./misc/cloudflare-pages/dist --compatibility-date=2023-04-20",
+    "release": "wrangler pages deploy ./misc/cloudflare-pages/dist --commit-dirty --branch main --project-name vite-runtime-workerd-react-router-hiro18181"
   },
   "dependencies": {
     "react": "^18.2.0",

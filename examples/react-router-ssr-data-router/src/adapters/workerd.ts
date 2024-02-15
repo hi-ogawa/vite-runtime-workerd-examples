@@ -4,14 +4,15 @@ export default {
   async fetch(request: Request, env: any): Promise<Response> {
     return requestHandler({
       request,
-      getHtmlTemplate() {
+      async getHtmlTemplate() {
         if (import.meta.env.DEV) {
           // customRpc is exposed via `env.__VITE_NODE_MINIFLARE_CLIENT`
           return env.__VITE_NODE_MINIFLARE_CLIENT.rpc.getHtmlTemplate(
             request.url,
           );
         } else {
-          throw new Error("todo: embed template during build");
+          // embed prebuilt index.html
+          return (await import("/dist/client/index.html?raw")).default;
         }
       },
     });
