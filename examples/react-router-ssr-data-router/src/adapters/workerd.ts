@@ -6,7 +6,9 @@ export default {
       request,
       getHtmlTemplate() {
         if (import.meta.env.DEV) {
-          return env.__VITE_NODE_MINIFLARE_CLIENT.rpc.getIndexHtml(request.url);
+          return env.__VITE_NODE_MINIFLARE_CLIENT.rpc.getHtmlTemplate(
+            request.url,
+          );
         } else {
           throw new Error("todo: embed template during build");
         }

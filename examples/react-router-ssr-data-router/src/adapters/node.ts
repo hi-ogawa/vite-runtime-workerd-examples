@@ -16,11 +16,11 @@ export default createMiddleware(async (ctx) => {
       if (import.meta.env.DEV) {
         const html = await fs.promises.readFile("./index.html", "utf-8");
         return await ctx.platform.request.viteDevServer.transformIndexHtml(
-          "/",
+          ctx.request.url,
           html,
         );
       } else {
-        throw new Error("todo: embed template during build");
+        throw new Error("todo: embed template during server build");
       }
     },
   });
