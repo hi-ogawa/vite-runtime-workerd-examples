@@ -12,8 +12,8 @@ importers:
         specifier: ^0.0.42
         version: 0.0.42
       '@hiogawa/vite-node-miniflare':
-        specifier: 0.0.3-pre.2
-        version: 0.0.3-pre.2(vite@5.1.1)
+        specifier: 0.0.3-pre.3
+        version: 0.0.3-pre.3(vite@5.1.1)
       '@hiogawa/vite-plugin-ssr-middleware':
         specifier: ^0.0.2
         version: 0.0.2(vite@5.1.1)
@@ -1042,8 +1042,8 @@ packages:
       mime-types: 2.1.35
     dev: true
 
-  /@hiogawa/vite-node-miniflare@0.0.3-pre.2(vite@5.1.1):
-    resolution: {integrity: sha512-grryDY1fTbs5o03xgoyzGES6sRhPkUVb/USHV5EAQF1KFUlbxy9dyLQelc51SEHIi0LMraDjxeo5QkLtAgG0Zw==}
+  /@hiogawa/vite-node-miniflare@0.0.3-pre.3(vite@5.1.1):
+    resolution: {integrity: sha512-ZFkHC7XVV3SR5uUg+YWvTnrZNFDAbKw+6wvRIJM7pL1r5UDC2veMKmuSy9BOwGOvR+6Vx0xHUkTaGi0KpfSyQA==}
     peerDependencies:
       vite: '*'
     dependencies:
