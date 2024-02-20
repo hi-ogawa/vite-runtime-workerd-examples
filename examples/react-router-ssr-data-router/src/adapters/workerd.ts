@@ -6,10 +6,8 @@ export default {
       request,
       async getHtmlTemplate() {
         if (import.meta.env.DEV) {
-          // customRpc is exposed via `env.__VITE_NODE_MINIFLARE_CLIENT`
-          return env.__VITE_NODE_MINIFLARE_CLIENT.rpc.getHtmlTemplate(
-            request.url,
-          );
+          const html = (await import("/index.html?raw")).default;
+          return env.__RPC.transformIndexHtml(request.url, html);
         } else {
           // embed prebuilt index.html
           return (await import("/dist/client/index.html?raw")).default;

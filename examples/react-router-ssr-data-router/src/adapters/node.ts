@@ -1,4 +1,3 @@
-import fs from "node:fs";
 import type { ViteDevServer } from "vite";
 import { requestHandler } from "../entry.server";
 import { createMiddleware } from "@hattip/adapter-node";
@@ -15,7 +14,7 @@ export default createMiddleware(async (ctx) => {
     request: ctx.request,
     async getHtmlTemplate() {
       if (import.meta.env.DEV) {
-        const html = await fs.promises.readFile("./index.html", "utf-8");
+        const html = (await import("/index.html?raw")).default;
         return await ctx.platform.request.viteDevServer.transformIndexHtml(
           ctx.request.url,
           html,
